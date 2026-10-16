@@ -1,13 +1,14 @@
 import LeadForm from "@/components/LeadForm";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <main className="min-h-screen p-8 md:p-24 flex flex-col items-center">
       <div className="max-w-4xl w-full">
-        <nav className="mb-12 flex justify-center gap-6 text-stone-600 font-medium">
-          <a href="#about" className="hover:text-stone-900 transition-colors">О нас</a>
-          <a href="#products" className="hover:text-stone-900 transition-colors">Ассортимент</a>
-          <a href="#order" className="hover:text-stone-900 transition-colors">Заказать</a>
+        <nav className="mb-12 flex justify-center gap-6 text-xl text-stone-600 font-medium">
+          <a href="#about" className="hover:text-stone-700 transition-colors">О нас</a>
+          <a href="#products" className="hover:text-stone-700 transition-colors">Ассортимент</a>
+          <a href="#order" className="hover:text-stone-700 transition-colors">Заказать</a>
         </nav>
         <header id="about" className="mb-24 text-center scroll-mt-12 mt-10">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-stone-400 mb-10">
@@ -28,7 +29,7 @@ export default function Home() {
               </div>
               <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
                 <div className="text-xl font-semibold text-stone-800 mb-2">🚚 Развозим по пятницам</div>
-                <p className="text-stone-600">Доставляем по всему Минску. Вы получили кофе к выходным!</p>
+                <p className="text-stone-600">Доставляем по всему Минску. Вы получите кофе к выходным!</p>
               </div>
             </div>
 
@@ -43,9 +44,102 @@ export default function Home() {
           </div>
         </header>
 
-        <section id="products" className="mb-24 flex justify-center scroll-mt-12">
-          <div className="w-full text-center text-stone-400 py-12 border-2 border-dashed border-stone-200 rounded-2xl">
-            Блок с карточками кофе
+        <section id="products" className="mb-24 scroll-mt-12 w-full">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-stone-400 mb-10">Наш кофе</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div className="bg-white p-6 md:p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col hover:border-stone-300 transition-colors">
+              <div className="flex justify-between items-start gap-4 mb-6">
+                <div>
+                  <h3 className="text-2xl font-semibold text-stone-800 mb-2">Эфиопия Иргачеффе</h3>
+                  <p className="text-stone-500 mb-6">цветочный, бергамот, светлая обжарка · 250 г</p>
+                </div>
+                <div className="relative w-30 h-30 shrink-0 rounded-2xl overflow-hidden bg-stone-100 border border-stone-100 shadow-sm">
+                  <Image src="/products/3.jpg" alt="Эфиопия Иргачеффе" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="mt-auto flex items-center justify-between">
+                <span className="text-2xl font-bold text-stone-800">32 BYN</span>
+                <a href="#order" className="px-5 py-2.5 bg-stone-200 hover:bg-stone-300 text-stone-800 font-medium rounded-xl transition-colors">
+                  Выбрать
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 md:p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col hover:border-stone-300 transition-colors">
+              <div className="flex justify-between items-start gap-4 mb-6">
+                <div>
+                  <h3 className="text-2xl font-semibold text-stone-800 mb-2">Колумбия Уила</h3>
+                  <p className="text-stone-500 mb-6">карамель, красное яблоко · 250 г</p>
+                </div>
+                <div className="relative w-30 h-30 shrink-0 rounded-2xl overflow-hidden bg-stone-100 border border-stone-100 shadow-sm">
+                  <Image src="/products/1.jpg" alt="Колумбия Уила" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="mt-auto flex items-center justify-between">
+                <span className="text-2xl font-bold text-stone-800">29 BYN</span>
+                <a href="#order" className="px-5 py-2.5 bg-stone-200 hover:bg-stone-300 text-stone-800 font-medium rounded-xl transition-colors">
+                  Выбрать
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 md:p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col hover:border-stone-300 transition-colors">
+              <div className="flex justify-between items-start gap-4 mb-6">
+                <div>
+                  <h3 className="text-2xl font-semibold text-stone-800 mb-2">Бразилия Серрадо</h3>
+                  <p className="text-stone-500 mb-6">орех, шоколад, под эспрессо · 250 г</p>
+                </div>
+                <div className="relative w-30 h-30 shrink-0 rounded-2xl overflow-hidden bg-stone-100 border border-stone-100 shadow-sm">
+                  <Image src="/products/2.jpg" alt="Бразилия Серрадо" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="mt-auto flex items-center justify-between">
+                <span className="text-2xl font-bold text-stone-800">26 BYN</span>
+                <a href="#order" className="px-5 py-2.5 bg-stone-200 hover:bg-stone-300 text-stone-800 font-medium rounded-xl transition-colors">
+                  Выбрать
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 md:p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col hover:border-stone-300 transition-colors">
+              <div className="flex justify-between items-start gap-4 mb-6">
+                <div>
+                  <h3 className="text-2xl font-semibold text-stone-800 mb-2">Дрип-пакеты, ассорти</h3>
+                  <p className="text-stone-500 mb-6">10 штук</p>
+                </div>
+                <div className="relative w-30 h-30 shrink-0 rounded-2xl overflow-hidden bg-stone-100 border border-stone-100 shadow-sm">
+                  <Image src="/products/drip.jpg" alt="Дрип-пакеты" fill className="object-cover" />
+                </div>
+              </div>
+              <div className="mt-auto flex items-center justify-between">
+                <span className="text-2xl font-bold text-stone-800">18 BYN</span>
+                <a href="#order" className="px-5 py-2.5 bg-stone-200 hover:bg-stone-300 text-stone-800 font-medium rounded-xl transition-colors">
+                  Выбрать
+                </a>
+              </div>
+            </div>
+
+            <div className="col-span-1 md:col-span-2 mt-4 bg-[#D97757] text-white p-8 md:p-10 rounded-3xl shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+              <div className="relative z-10">
+                <div className="inline-block bg-white/20 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                  Самое выгодное
+                </div>
+                <h3 className="text-3xl font-bold mb-2">Кофейная подписка</h3>
+                <p className="text-white/90 text-lg max-w-md">
+                  2 пачки по 250 г раз в месяц. Мы сами подберем интересные лоты, а доставка всегда будет <span className="font-semibold underline decoration-white/50 underline-offset-4">бесплатной</span>.
+                </p>
+              </div>
+              <div className="relative z-10 flex flex-col items-start md:items-end w-full md:w-auto shrink-0">
+                <span className="text-4xl font-bold mb-4">54 BYN <span className="text-xl font-medium opacity-80">/ мес</span></span>
+                <a href="#order" className="w-full md:w-auto text-center px-8 py-4 bg-white text-[#D97757] font-semibold rounded-xl hover:bg-stone-50 transition-colors shadow-sm">
+                  Оформить подписку
+                </a>
+              </div>
+              <div className="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            </div>
+
           </div>
         </section>
 
