@@ -24,7 +24,7 @@ export default function RootLayout({ children }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className="scroll-smooth">
       <body className={`${inter.className} bg-stone-50 text-stone-900`}>
         {children}
         <Toaster position="bottom-right" richColors />

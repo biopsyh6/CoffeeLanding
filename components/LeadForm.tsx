@@ -16,7 +16,7 @@ export default function LeadForm() {
         formState: { errors, isSubmitting },
     } = useForm<LeadFormValues>({
         resolver: zodResolver(leadSchema),
-        defaultValues: { interest: "Подписка" }
+        defaultValues: { interest: "" }
     });
 
     useEffect(() => {
@@ -59,7 +59,7 @@ export default function LeadForm() {
                 <input
                     {...register("name")}
                     placeholder="Ваше имя"
-                    className="w-full p-3 border border-stone-200 rounded-lg outline-none focus:border-stone-400 transition-colors"
+                    className="w-full p-3 border border-stone-200 rounded-lg outline-none focus:border-stone-400 transition-colors placeholder:text-stone-500 text-stone-800"
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
             </div>
@@ -68,20 +68,32 @@ export default function LeadForm() {
                 <input
                     {...register("phone")}
                     placeholder="+375 (__) ___-__-__"
-                    className="w-full p-3 border border-stone-200 rounded-lg outline-none focus:border-stone-400 transition-colors"
+                    className="w-full p-3 border border-stone-200 rounded-lg outline-none focus:border-stone-400 transition-colors placeholder:text-stone-500 text-stone-800"
                 />
                 {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
             </div>
 
             <div>
-                <select {...register("interest")} className="w-full p-3 border border-stone-200 rounded-lg outline-none focus:border-stone-400 bg-white">
-                    <option value="Подписка">Подписка (54 BYN/мес)</option>
-                    <option value="Эфиопия Иргачеффе">Эфиопия Иргачеффе (32 BYN)</option>
-                    <option value="Колумбия Уила">Колумбия Уила (29 BYN)</option>
-                    <option value="Бразилия Серрадо">Бразилия Серрадо (26 BYN)</option>
+                <select {...register("interest")} className="w-full p-3 border border-stone-200 rounded-lg outline-none focus:border-stone-400 bg-white text-stone-800">
+                    <option value="" disabled hidden>Что интересует</option>
+                    <option value="Подписка">Подписка</option>
+                    <option value="Эфиопия Иргачеффе">Эфиопия Иргачеффе</option>
+                    <option value="Колумбия Уила">Колумбия Уила</option>
+                    <option value="Бразилия Серрадо">Бразилия Серрадо</option>
+                    <option value="Дрип-пакеты">Дрип-пакеты, ассорти</option>
                     <option value="Вопрос">Задать вопрос</option>
                 </select>
                 {errors.interest && <p className="text-red-500 text-sm mt-1">{errors.interest.message}</p>}
+            </div>
+
+            <div>
+                <textarea
+                    {...register("comment")}
+                    placeholder="Комментарий (необязательно)"
+                    rows={3}
+                    className="w-full p-3 border border-stone-200 rounded-lg outline-none focus:border-stone-400 transition-colors placeholder:text-stone-500 text-stone-800 resize-none"
+                />
+                {errors.comment && <p className="text-red-500 text-sm mt-1">{errors.comment.message}</p>}
             </div>
 
             <button
