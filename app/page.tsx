@@ -13,9 +13,27 @@ export default function Home() {
           </nav>
         </div>
         <header id="about" className="mb-24 text-center scroll-mt-12 mt-10">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-stone-300 mb-10">
-            Обжарка «Кварта»
-          </h1>
+          <div className="flex items-center justify-center gap-4 md:gap-6 mb-10">
+            <div className="relative w-12 h-12 md:w-16 md:h-16 shrink-0">
+              <Image 
+                src="/logo_without_text.png" 
+                alt="Логотип Кварта" 
+                fill 
+                className="object-contain" 
+              />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-stone-300">
+              Обжарка «Кварта»
+            </h1>
+            <div className="relative w-12 h-12 md:w-16 md:h-16 shrink-0">
+              <Image 
+                src="/logo_without_text.png" 
+                alt="Логотип Кварта" 
+                fill 
+                className="object-contain" 
+              />
+            </div>
+          </div>
           {/* <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-stone-500 mb-4">
             Кто мы?
           </h3> */}
