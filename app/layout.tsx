@@ -25,8 +25,10 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
   return (
     <html lang="ru" className="scroll-smooth">
-      <body className={`${inter.className} bg-stone-50 text-stone-900`}>
-        {children}
+      <body className={`${inter.className} bg-[url('/bg.jpg')] bg-repeat text-stone-900 min-h-screen`}>
+        <div className="min-h-screen w-full backdrop-blur-sm">
+          {children}
+        </div>
         <Toaster position="bottom-right" richColors />
       </body>
     </html>

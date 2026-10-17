@@ -5,20 +5,22 @@ export default function Home() {
   return (
     <main className="min-h-screen p-8 md:p-24 flex flex-col items-center">
       <div className="max-w-4xl w-full">
-        <nav className="mb-12 flex justify-center gap-6 text-xl text-stone-600 font-medium">
-          <a href="#about" className="hover:text-stone-700 transition-colors">О нас</a>
-          <a href="#products" className="hover:text-stone-700 transition-colors">Ассортимент</a>
-          <a href="#order" className="hover:text-stone-700 transition-colors">Заказать</a>
-        </nav>
+        <div className="sticky top-0 z-50 w-full pt-4 pb-8 mb-4 flex justify-center group">
+          <nav className="opacity-0 -translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 flex justify-center gap-6 text-xl text-stone-800 font-medium bg-white/70 backdrop-blur-md px-8 py-4 rounded-full shadow-sm transition-all duration-500">
+            <a href="#about" className="hover:text-stone-700 transition-colors">О нас</a>
+            <a href="#products" className="hover:text-stone-700 transition-colors">Ассортимент</a>
+            <a href="#order" className="hover:text-stone-700 transition-colors">Заказать</a>
+          </nav>
+        </div>
         <header id="about" className="mb-24 text-center scroll-mt-12 mt-10">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-stone-400 mb-10">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-stone-300 mb-10">
             Обжарка «Кварта»
           </h1>
           {/* <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-stone-500 mb-4">
             Кто мы?
           </h3> */}
           <div className="max-w-3xl mx-auto flex flex-col gap-8">
-            <p className="text-xl md:text-2xl text-stone-400 leading-relaxed">
+            <p className="text-xl md:text-2xl text-stone-300 leading-relaxed">
               Мы - маленькая мастерская в Минске. Основатели Аня и Дмитрий в прошлом работали бариста, а с 2019 года жарим свой кофе партиями по 5 кг.
             </p>
 
@@ -33,7 +35,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-stone-800 text-stone-50 p-8 rounded-3xl mt-4">
+            <div className="bg-stone-700 text-stone-50 p-8 rounded-3xl mt-4">
               <p className="text-xl md:text-2xl font-medium">
                 Свежесть - это главное, что мы продаем.
               </p>
@@ -45,7 +47,7 @@ export default function Home() {
         </header>
 
         <section id="products" className="mb-24 scroll-mt-12 w-full">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-stone-400 mb-10">Наш кофе</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-stone-300 mb-10">Наш кофе</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -143,14 +145,40 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="order" className="flex justify-center bg-stone-100 p-8 md:p-12 rounded-3xl scroll-mt-12">
-          <div className="w-full flex flex-col md:flex-row gap-12 items-center justify-between max-w-3xl">
-            <div className="flex-1">
-              <h2 className="text-3xl font-semibold text-stone-900 mb-4">Заказать кофе</h2>
-              <p className="text-stone-700 mb-2">Самовывоз: ул. Короля, 9</p>
-              <p className="text-stone-700 mb-2">Доставка: по пятницам (от 50 BYN - бесплатно)</p>
+        <section id="order" className="flex justify-center bg-stone-100 p-8 md:p-12 rounded-3xl scroll-mt-12 w-full">
+          <div className="w-full flex flex-col md:flex-row gap-12 items-center md:items-start justify-between max-w-5xl">
+
+            <div className="flex-1 flex flex-col gap-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Заказать кофе</h2>
+                <p className="text-stone-600 text-lg leading-relaxed">
+                  Оставьте заявку, и мы перезвоним, чтобы всё подтвердить. Оплата при получении.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-5">
+                <div className="flex items-start gap-4">
+                  <div className="text-2xl bg-white p-3 rounded-2xl shadow-sm">📍</div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-stone-800">Самовывоз</h4>
+                    <p className="text-stone-600">Минск, ул. Короля, 9</p>
+                    <p className="text-stone-500 text-sm mt-1">пн–пт 8:00–20:00, сб-вс 10:00-18:00</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="text-2xl bg-white p-3 rounded-2xl shadow-sm">🚚</div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-stone-800">Доставка по Минску</h4>
+                    <p className="text-stone-600">Развозим заказы по пятницам</p>
+                    <p className="text-stone-500 text-sm mt-1">От 50 BYN - бесплатно</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <LeadForm />
+            <div className="w-full md:w-[400px] shrink-0">
+              <LeadForm />
+            </div>
           </div>
         </section>
       </div>

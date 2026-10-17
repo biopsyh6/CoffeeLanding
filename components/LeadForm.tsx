@@ -52,7 +52,7 @@ export default function LeadForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 max-w-md w-full bg-white p-6 rounded-xl shadow-sm border border-stone-100">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 max-w-lg w-full bg-white p-6 rounded-xl shadow-sm border border-stone-100">
             <h3 className="text-xl font-medium text-stone-800">Оставить заявку</h3>
 
             <div>
