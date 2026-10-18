@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Обжарка «Кварта» | Свежий кофе в Минске",
     description: "Жарим небольшими партиями по 5 кг. Зерно попадает к вам на 1-3 день после обжарки. Бесплатная доставка от 50 BYN.",
-    url: "https://ваш-домен.vercel.app",
+    url: "https://kvarta-minsk.netlify.app",
     siteName: "Обжарка Кварта",
     images: [
       {
