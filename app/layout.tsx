@@ -16,6 +16,7 @@ const inter = Inter({ subsets: ["latin", "cyrillic"] });
 // });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kvarta-minsk.netlify.app"),
   title: "Обжарка «Кварта» | Минск",
   description: "Свежеобжаренный кофе с доставкой по Минску. Жарим по четвергам.",
   openGraph: {
