@@ -15,7 +15,7 @@ async function sendToTelegram(data: { name: string, phone: string, interest: str
     }
 
     const utmStr = data.utm && Object.keys(data.utm).length > 0
-        ? `\n\n📊 *UTM Метки:*\nИсточник: ${data.utm.source || '-'}\nМедиум: ${data.utm.medium || '-'}\nКампания: ${data.utm.campaign || '-'}`
+        ? `\n\n📊 *UTM Метки:*\nИсточник: ${data.utm.source || '-'}\nМедиум: ${data.utm.medium || '-'}\nКампания: ${data.utm.campaign || '-'}\nОбъявление: ${data.utm.term || '-'}\nСтраница: ${data.utm.content || '-'}`
         : '';
 
     const text = `☕️ *Новая заявка «Кварта»!*\n\n👤 *Имя:* ${data.name}\n📞 *Телефон:* ${data.phone}\n🛒 *Интересует:* ${data.interest}\n💬 *Комментарий:* ${data.comment || '—'}${utmStr}`;

@@ -25,6 +25,8 @@ export default function LeadForm() {
             source: params.get("utm_source") || "direct",
             medium: params.get("utm_medium") || "",
             campaign: params.get("utm_campaign") || "",
+            term: params.get("utm_term") || "",      
+            content: params.get("utm_content") || "",
         };
         setUtmParams(utms);
     }, []);
