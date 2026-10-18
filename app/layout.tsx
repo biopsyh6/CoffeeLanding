@@ -18,6 +18,22 @@ const inter = Inter({ subsets: ["latin", "cyrillic"] });
 export const metadata: Metadata = {
   title: "Обжарка «Кварта» | Минск",
   description: "Свежеобжаренный кофе с доставкой по Минску. Жарим по четвергам.",
+  openGraph: {
+    title: "Обжарка «Кварта» | Свежий кофе в Минске",
+    description: "Жарим небольшими партиями по 5 кг. Зерно попадает к вам на 1-3 день после обжарки. Бесплатная доставка от 50 BYN.",
+    url: "https://ваш-домен.vercel.app",
+    siteName: "Обжарка Кварта",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Свежеобжаренный кофе Кварта",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{
