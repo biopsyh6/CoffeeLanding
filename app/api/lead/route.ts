@@ -5,6 +5,42 @@ import { success } from "zod";
 
 const TEN_MINUTES = 10 * 60 * 1000;
 
+async function sendToTelegram(data: { name: string, phone: string, interest: string, comment?: string | null, utm?: any }) {
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+
+    if (!token || !chatId) {
+        console.warn("Telegram токены не настроены. Уведомление не отправлено.");
+        return;
+    }
+
+    const utmStr = data.utm && Object.keys(data.utm).length > 0
+        ? `\n\n📊 *UTM Метки:*\nИсточник: ${data.utm.source || '-'}\nМедиум: ${data.utm.medium || '-'}\nКампания: ${data.utm.campaign || '-'}`
+        : '';
+
+    const text = `☕️ *Новая заявка «Кварта»!*\n\n👤 *Имя:* ${data.name}\n📞 *Телефон:* ${data.phone}\n🛒 *Интересует:* ${data.interest}\n💬 *Комментарий:* ${data.comment || '—'}${utmStr}`;
+
+    const tgUrl = `https://api.telegram.org/bot${token}/sendMessage`;
+
+    try {
+        const response = await fetch(tgUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: text,
+                parse_mode: 'Markdown',
+            }),
+        });
+
+        if (!response.ok) {
+            console.error("Ошибка Telegram API:", await response.text());
+        }
+    } catch (error) {
+        console.error("Сетевая ошибка при отправке в Telegram:", error);
+    }
+}
+
 export async function POST(request: Request) {
     try {
         const body = await request.json();
@@ -54,6 +90,8 @@ export async function POST(request: Request) {
             console.error("Ошибка при сохранении в Supabase:", insertError);
             return NextResponse.json({ error: "Не удалось сохранить заявку" }, { status: 500 });
         }
+
+        sendToTelegram({ name, phone, interest, comment, utm: body.utm });
 
         return NextResponse.json({ success: true, message: "Заявка принята" });
 
